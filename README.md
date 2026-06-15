@@ -1,82 +1,90 @@
-# ZENITH AI — Software Engineering Copilot Web App
+# 🌌 ZENITH AI — Elite Software Engineering Copilot
 
-ZENITH AI is an elite, full-stack AI-powered software engineering copilot web application built with a modern React + Vite frontend and an Express backend. It utilizes the Featherless.ai API with advanced coding models like DeepSeek V4 and Gemma.
+Zenith AI is a premium, full-stack AI-powered software engineering workspace designed to assist throughout the complete software development lifecycle — from initial requirements and UML diagrams to automated test suites, DevOps configurations, and deployment strategies.
 
----
-
-## Key Features
-
-1. **Voice Input**: Speech-to-text input with an interactive microphone visualizer and animation rings.
-2. **File Upload & Analysis**: Upload PDFs, documents, or code files for inline contextual analysis.
-3. **Usage Dashboard**: Track message counts, active models, tokens, and storage metrics in a sliding sidebar.
-4. **Compare Mode**: Side-by-side model comparison to test prompts across two AI models simultaneously.
-5. **Aesthetic UI**: Dark theme (`#0a0a0f`) with glassmorphism and animated custom background loop.
+🚀 **Live Deployed Web Application**: [https://prithvi-ai-copilot.vercel.app](https://prithvi-ai-copilot.vercel.app)
 
 ---
 
-## Local Development Setup
+## 🌟 Key Capabilities
 
-To start developing locally, follow these simple steps:
+### 1. 🎤 Interactive AI Assistant & Speech Input
+*   **Voice Integration**: Speech-to-text input with an interactive microphone visualizer and animation rings.
+*   **File Context**: Upload PDFs, documents, or raw code files for inline contextual analysis and refactoring.
+*   **Dual-Model Compare Mode**: Compare response outputs side-by-side across two distinct AI models simultaneously.
+
+### 2. 📊 Advanced Engineering Suite
+*   **SRS Generator**: Generate comprehensive Software Requirements Specification documents.
+*   **UML & Database Designer**: Create use case, class, and sequence diagrams, or optimize SQL database schemas.
+*   **Repository Analyzer**: Deep code intelligence, dependency graph mapping, and commit checks.
+*   **DevOps & Testing**: Automatically scaffold Jest test suites, Dockerfiles, and CI/CD pipelines.
+
+### 3. 📈 Usage & Cost Dashboard
+*   **Token Statistics**: Track message count, token usage, and active models in real time.
+*   **Cost Estimation**: Out-of-the-box billing estimation based on individual model pricing configurations.
+*   **Model Options**: Access DeepSeek V4 Pro, DeepSeek V4 Flash, GPT-OSS 120B, Google Gemma 4, Qwen 3.6, and Llama 3.1.
+
+---
+
+## 🛠️ Technology Stack
+
+*   **Frontend**: React, Framer Motion (for premium micro-animations), Recharts (for usage data visualization), Lucide React (icons).
+*   **Styling**: Vanilla CSS with glassmorphism effects, a glowing alien teal theme, and an animated video background overlay.
+*   **Backend**: Node.js, Express, and OpenAI compatibility layers.
+*   **AI Engine**: Featherless AI API integration with advanced reasoning coding models.
+*   **Deployment**: Optimized for Vercel Serverless Functions and Render cloud hosting.
+
+---
+
+## ⚙️ Local Development Setup
+
+To run Zenith AI on your local machine, follow these steps:
 
 ### 1. Prerequisites
-Ensure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
+*   [Node.js](https://nodejs.org/) (v18+ recommended)
+*   npm (v9+ recommended)
 
-### 2. Environment Variables Configuration
-Create a `.env` file in the root directory (or modify the existing one) and add your API key:
+### 2. Environment Configuration
+Create a `.env` file in the root directory and add your Featherless API Key:
 ```env
 FEATHERLESS_API_KEY=your_featherless_api_key_here
 PORT=3001
+AI_MODEL=deepseek-ai/DeepSeek-V4-Flash
 ```
 
 ### 3. Install Dependencies
-Run npm install in the root folder and in the server folder:
+Install packages for both the frontend client and backend server:
 ```bash
-# Install frontend dependencies
+# Install root (frontend) dependencies
 npm install
 
 # Install backend dependencies
 npm install --prefix server
 ```
 
-### 4. Run Locally
-We use `concurrently` to launch both the frontend (Vite) and backend (Express) with a single command:
+### 4. Run the Project
+Launch both the Vite dev server and the Express API server concurrently:
 ```bash
 npm run dev
 ```
-- Frontend: [http://localhost:5173](http://localhost:5173)
-- Backend: [http://localhost:3001](http://localhost:3001)
-
-Vite is configured to proxy `/api` routes directly to the Express server, so no CORS configuration is needed.
+*   **Frontend Client**: [http://localhost:5173](http://localhost:5173)
+*   **Backend API**: [http://localhost:3001](http://localhost:3001)
 
 ---
 
-## Production Build & Single-Service Hosting
+## 🚀 Cloud Deployment
 
-You can easily build the app and host it on any standard Node.js cloud hosting provider (e.g., **Render**, **Railway**, **Heroku**, **Vercel**).
+Zenith AI is configured for unified deployment (serving the static React build from the Express backend).
 
-The Express backend is configured to serve the built static React frontend assets from the `dist` folder. This means you only need to host **one unified web service**.
-
-### 1. Build the Frontend
-Compiles your React code into optimization static files:
+### Production Build
+Compile client-side assets into the `dist` directory:
 ```bash
 npm run build
 ```
 
-### 2. Start the Production Server
-Runs the unified backend server which hosts the API and serves the React client:
+### Start Production Server
+Run the Express server to serve API endpoints and static client files:
 ```bash
 npm start
 ```
 Go to `http://localhost:3001` in your browser.
-
-### Cloud Deployment (e.g. Render / Railway)
-1. Link your GitHub repository.
-2. Configure the environment variables (e.g. `FEATHERLESS_API_KEY`, `NODE_ENV=production`).
-3. Set the **Build Command** to:
-   ```bash
-   npm install && npm install --prefix server && npm run build
-   ```
-4. Set the **Start Command** to:
-   ```bash
-   npm start
-   ```
