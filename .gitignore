@@ -1,0 +1,15 @@
+.env
+node_modules/
+dist/
+*.log
+.DS_Store
+
+.vercel
+
+# Databases
+sessions.json
+
+# Scratch and test files
+scratch/
+test_*.js
+clean_file.js
